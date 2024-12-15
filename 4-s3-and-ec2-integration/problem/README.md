@@ -17,5 +17,5 @@ Build a Terraform project that accomplishes the following:
 
 ## Hints
 - You can use the `aws_s3_object` resource to upload the `students.json` file to the S3 bucket.
-- In the EC2 instance's user data script, you can use the `aws s3 cp` command to download the `students.json` file from the S3 bucket and place it in the web server's root directory.
+- In the EC2 instance's user data script, you can install awscli and use the `aws s3 cp` command to download the `students.json` file from the S3 bucket and place it in the web server's root directory. Remember that the EC2 instance will need the appropriate IAM role to access the S3 bucket.
 
