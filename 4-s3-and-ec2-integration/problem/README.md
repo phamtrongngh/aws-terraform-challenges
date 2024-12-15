@@ -1,4 +1,4 @@
-# Lambda and EC2 Integration
+# S3 and EC2 Integration
 
 ![Diagram](./diagram.png)
 
