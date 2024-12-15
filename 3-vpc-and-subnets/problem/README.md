@@ -1,10 +1,10 @@
 # VPC And Subnets
 
 ## Problem
-Write a Terraform module that creates a VPC and its subnets. The module takes inputs for the CIDR ranges for the VPC and subnets and should return the created VPC and each subnet as an output. Create a Terraform project that uses the module and print the output of the module to the console.
+Write a Terraform project that creates a VPC and its subnets. The project takes inputs for the CIDR ranges for the VPC and subnets and should return the created VPC and each subnet as an output. Create a Terraform project that uses the project and print the output of the project to the console.
 
 ## Inputs
-As defined in the problem statement, the module takes inputs for the CIDR ranges and for the VPC and subnets.
+As defined in the problem statement, the project takes inputs for the CIDR ranges and for the VPC and subnets.
 
 Example:
 ```
@@ -13,7 +13,7 @@ subnet_cidrs = ["10.0.0.0/24", "10.0.1.0/24"]
 ```
 
 ## Output
-The module should return the created VPC and each subnet as an output.
+The project should return the created VPC and each subnet as an output.
 
 After running the terraform apply command, the output on the terminal should look like this:
 ```
