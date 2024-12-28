@@ -339,3 +339,8 @@ Run the following command to destroy all the resources created by Terraform:
 ```bash
 terraform destroy
 ```
+
+You will be prompted to confirm the destruction of the resources. Type `yes` to proceed.
+
+## Conclusion
+In this solution, we have successfully deployed a web server using ECS Fargate. We dockerized the web server, pushed the Docker image to Amazon ECR, created a VPC, IAM role, ECS Fargate cluster, task definition, and service using Terraform. Finally, we accessed the web server running in the ECS Fargate service.
