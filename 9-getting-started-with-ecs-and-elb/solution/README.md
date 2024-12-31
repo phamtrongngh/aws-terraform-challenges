@@ -338,7 +338,7 @@ Open a web browser and enter the ALB DNS name you obtained from the above step, 
 
 > Note: Don't put `https://` in front of the ALB DNS name because we are using HTTP, not HTTPS. We need to configure SSL/TLS certificates for the ALB to use HTTPS, which is out of the scope of this challenge.
 
-## Step 8: Clean Up
+## Step 7: Clean Up
 
 After you have completed the challenge, make sure to clean up the resources to avoid incurring unnecessary costs.
 
