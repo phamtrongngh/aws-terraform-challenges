@@ -66,10 +66,6 @@ locals {
   public_subnets = ["10.0.0.0/24"]
 }
 
-data "http" "my_ip" {
-  url = "http://checkip.amazonaws.com/"
-}
-
 module "vpc" {
   source         = "terraform-aws-modules/vpc/aws"
   name           = "vpc"
@@ -89,7 +85,7 @@ module "vpc" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = "${trimspace(data.http.my_ip.response_body)}/32" # We must trim the response body to remove the newline character ("\n")
+      cidr_blocks = "0.0.0.0/0"
       description = "Allow SSH inbound traffic from my IP"
     }
   ]
@@ -111,10 +107,8 @@ We define a VPC with these configurations:
 - One public subnet with CIDR block `10.0.0.0/24`.
 - The default security group: 
   - Allows inbound traffic on port 80 from the internet.
-  - Allows inbound SSH traffic from the public IP address of the network you are running the Terraform script from. We use the `http` data source to get the public IP address from `http://checkip.amazonaws.com/`. 
-    
-    > Note: In case you can't ssh to the EC2 instance later, maybe because your internet provider uses a proxy server that changes your public IP address frequently, you can replace `${data.http.my_ip.body}/32` with `0.0.0.0/0` to solve the issue. However, this is less secure and not recommended for production environments.
-    
+  - Allows inbound SSH traffic on port 22 from the internet. 
+    > Note: In the real world, it is recommended to restrict SSH access to a specific IP address or range of IP addresses to enhance security. However, for the purpose of this challenge, we allow SSH access from anywhere (`0.0.0.0/0`) to avoid issues related to IP changes in your network that could prevent you from accessing the instance later.
   - Allows all outbound traffic.
 
 Apply the changes to create the VPC and its associated resources:

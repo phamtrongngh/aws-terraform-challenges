@@ -3,10 +3,6 @@ locals {
   public_subnets = ["10.0.0.0/24"]
 }
 
-data "http" "my_ip" {
-  url = "http://checkip.amazonaws.com/"
-}
-
 module "vpc" {
   source         = "terraform-aws-modules/vpc/aws"
   name           = "vpc"
@@ -23,10 +19,9 @@ module "vpc" {
       description = "Allow HTTP inbound traffic"
     },
     {
-      from_port = 22
-      to_port   = 22
-      protocol  = "tcp"
-      #   cidr_blocks = "${trimspace(data.http.my_ip.response_body)}/32" # We must trim the response body to remove the newline character ("\n")
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
       cidr_blocks = "0.0.0.0/0"
       description = "Allow SSH inbound traffic from my IP"
     }
