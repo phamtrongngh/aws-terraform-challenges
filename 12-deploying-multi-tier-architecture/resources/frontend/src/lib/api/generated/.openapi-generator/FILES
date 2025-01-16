@@ -1,0 +1,16 @@
+.openapi-generator-ignore
+apis/AuthApi.ts
+apis/TasksApi.ts
+apis/UsersApi.ts
+apis/index.ts
+index.ts
+models/AuthEntity.ts
+models/CreateTaskDto.ts
+models/LoginDto.ts
+models/RegisterDto.ts
+models/TaskEntity.ts
+models/UpdateTaskDto.ts
+models/UpdateUserDto.ts
+models/UserEntity.ts
+models/index.ts
+runtime.ts
